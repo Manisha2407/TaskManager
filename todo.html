@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Todo List</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="home.html" class="nav-logo">⚒️PlanForge</a>
+        <div class="nav-links">
+            <a href="main.html">Home</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="todo-app">
+            <h1>TO-DO-APP</h1>
+            <div class="stat-container">
+                <div class="details">
+                    <h3>keep it Up!</h3>
+                    <div id="progressbar">
+                        <div id="progress"></div>
+                    </div>
+                </div>
+                <div class="stats-number">
+                    <p id="numbers">0/0</p>
+                </div>
+            </div>
+            <form class="input-area">
+                <input type="text" id="task-input" placeholder="Add a new task...">
+                <button type="submit" id="add-task-btn"><i class="fa-solid fa-plus"></i></button>
+            </form>
+
+            <!-- this will container where task are displayed  -->
+            <div class="todos-container">
+                <!-- we have created a ul task-list where task are added -->
+                <ul id="task-list"></ul>
+                <img class="empty-image" src="images/empty.jpg" height="100px" width="100px">
+            </div>
+        </div>
+    </div>
+    <script src="todo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+</body>
+</html>

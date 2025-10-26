@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PlanForge - A simple task manager to organize your daily tasks efficiently">
+    <meta name="keywords" content="task manager, productivity, todo list, organize tasks">
+    <title>PlanForge - Task Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mansi.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">⚒️</span> PlanForge
+            </a>
+            <div class="nav-links">
+                <a href="home.html" class="nav-btn">Back to Home</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="main-container">
+            <section class="task-form-section" aria-labelledby="form-heading">
+                <h2 id="form-heading" class="section-title">Add New Task</h2>
+                <form class="task-form" id="taskForm" novalidate>
+                    <div class="form-group">
+                        <label for="taskTitle" class="form-label">Task Title *</label>
+                        <input 
+                            type="text" 
+                            id="taskTitle" 
+                            name="taskTitle"
+                            class="form-input" 
+                            placeholder="e.g., Finish project proposal"
+                            required
+                            aria-describedby="title-error"
+                        >
+                        <span class="error-message" id="title-error" role="alert"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="taskDescription" class="form-label">Description</label>
+                        <textarea 
+                            id="taskDescription" 
+                            name="taskDescription"
+                            class="form-input" 
+                            placeholder="Add more details (optional)"
+                            rows="3"
+                        ></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="taskPriority" class="form-label">Priority</label>
+                            <select id="taskPriority" name="taskPriority" class="form-input">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="taskDueDate" class="form-label">Due Date</label>
+                            <input 
+                                type="date" 
+                                id="taskDueDate" 
+                                name="taskDueDate"
+                                class="form-input"
+                            >
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Add Task
+                    </button>
+                </form>
+            </section>
+
+            <section class="stats-section" aria-labelledby="stats-heading">
+                <h2 id="stats-heading" class="section-title">Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number" id="totalTasks">0</span>
+                        <span class="stat-label">Total Tasks</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="completedTasks">0</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="pendingTasks">0</span>
+                        <span class="stat-label">Pending</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="task-list-area">
+                 <div class="filters-section" aria-labelledby="filters-heading">
+                    <h2 id="filters-heading" class="sr-only">Filter Tasks</h2>
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="pending">Pending</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                        <button class="filter-btn" data-filter="high">High Priority</button>
+                    </div>
+                </div>
+
+                <div class="tasks-section" aria-labelledby="tasks-heading">
+                    <h2 id="tasks-heading" class="sr-only">Your Tasks</h2>
+                    <div class="tasks-container" id="tasksContainer">
+                        </div>
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-icon">📝</div>
+                        <h3>No tasks yet</h3>
+                        <p>Create your first task to get started!</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 PlanForge. Built by Manisha.</p>
+    </footer>
+
+    <script src="mansi.js"></script>
+</body>
+</html>

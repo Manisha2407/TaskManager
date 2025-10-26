@@ -1,0 +1,358 @@
+/* --- CSS VARIABLES --- */
+:root {
+    --primary-color: #675DED;
+    --primary-color-dark: #534ACC;
+    --light-bg: #F4F6FA;
+    --white-color: #FFFFFF;
+    --dark-text: #343a40;
+    --gray-text: #6c757d;
+    --border-color: #e0e0e0;
+    --font-family: 'Poppins', sans-serif;
+    --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- GENERAL & RESET STYLES --- */
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+html {
+     scroll-behavior: smooth; 
+    }
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+}
+
+/* --- NAVIGATION BAR --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background: transparent;
+    z-index: 1000; /* set the stacking order set krta hai jitna no bada sabse upr*/
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);/*Yeh scrolled class JavaScript ke zariye scroll karne par add ki jaati hai. Isse scroll karne par navbar transparent se thoda white aur blurry (dhundhla) ho jaata hai.*/
+    box-shadow: var(--shadow-sm);
+}
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white-color);
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+.navbar.scrolled .nav-logo { 
+    color: var(--primary-color);
+ }
+.nav-links a {
+    color: var(--white-color);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.4s ease;
+}
+.navbar.scrolled .nav-links a {
+     color: var(--dark-text); 
+    }
+.nav-links a:hover {
+     color: var(--primary-color); 
+    }
+.nav-link-primary {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+}
+.navbar.scrolled .nav-link-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+.nav-link-primary:hover { 
+    color: var(--primary-color);
+ }
+.navbar.scrolled .nav-link-primary:hover {
+     color: var(--white-color); 
+     background-color: var(--primary-color-dark); 
+    }
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white-color);
+    background: linear-gradient(45deg, rgba(103, 93, 237, 0.8), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop') no-repeat center center/cover;
+    position: relative;
+}
+.hero-content { 
+    max-width: 800px; 
+    padding: 0 20px; 
+    animation: fadeIn 1s ease-out;
+ }
+.hero-title { 
+    font-size: 3.8rem; 
+    font-weight: 700;
+     margin-bottom: 1rem;
+     }
+.hero-subtitle {
+     font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+       margin-bottom: 2.5rem;
+     }
+.hero-button {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: var(--white-color);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.hero-button:hover {
+     background-color: var(--light-bg); 
+     transform: translateY(-3px);
+     }
+
+/* --- GENERAL SECTION STYLING --- */
+.page-section, .features-section { 
+    padding: 80px 5%; 
+}
+.section-header { 
+    text-align: center; 
+    margin-bottom: 4rem; 
+}
+.section-header h2 {
+     font-size: 2.5rem; 
+     margin-bottom: 1rem;
+     }
+.section-header p { 
+    font-size: 1.1rem;
+     color: var(--gray-text);
+      max-width: 600px; 
+      margin: 0 auto;
+     }
+
+/* --- HOW IT WORKS SECTION --- */
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.step {
+    text-align: center;
+    padding: 2rem;
+    background: var(--white-color);
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+}
+.step-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+.step h3 { 
+    font-size: 1.4rem;
+     margin-bottom: 0.5rem;
+     }
+.step p { 
+    color: var(--gray-text);
+ }
+
+/* --- FEATURES SECTION --- */
+.features-section { 
+    background-color: var(--white-color); 
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.feature-card {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover { 
+    transform: translateY(-8px);
+     box-shadow: var(--shadow-md);
+     }
+.feature-card svg {
+     width: 40px;
+      height: 40px; 
+      fill: var(--primary-color);
+    margin-bottom: 1rem;
+ }
+.feature-card h3 {
+     font-size: 1.3rem; 
+     margin-bottom: 0.5rem;
+     }
+.feature-card p { 
+    color: var(--gray-text); 
+    margin-bottom: 1.5rem;
+ }
+.feature-card a {
+     color: var(--primary-color);
+      font-weight: 700;
+       text-decoration: none;
+     }
+
+/* --- TESTIMONIAL SECTION --- */
+.testimonial-section {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 80px 5%;
+    text-align: center;
+}
+.testimonial-content { 
+    max-width: 800px; 
+    margin: 0 auto;
+ }
+.quote { font-size: 1.8rem;
+     font-weight: 500;
+      line-height: 1.6;
+       margin-bottom: 2rem; 
+    }
+.author { 
+    font-size: 1rem; 
+    font-weight: 700;
+     opacity: 0.8; }
+
+/* --- CTA SECTION --- */
+.cta-section {
+    text-align: center;
+    padding: 80px 5%;
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-color-dark));
+    color: var(--white-color);
+}
+.cta-section h2 {
+     font-size: 2.5rem;
+      margin-bottom: 1rem;
+     }
+.cta-section p { 
+    font-size: 1.1rem; 
+    opacity: 0.9; 
+    margin-bottom: 2rem;
+ }
+.cta-button {
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: var(--white-color);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.cta-button:hover { 
+    background-color: var(--light-bg);
+     transform: scale(1.05); }
+
+/* --- FOOTER --- */
+.footer { 
+    background-color: var(--dark-text); 
+    color: var(--light-bg);
+     padding: 50px 5% 20px; }
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+}
+.footer-logo {
+     font-size: 1.5rem;
+      font-weight: 700; 
+    }
+.footer-links a, .footer-socials a { 
+    color: var(--gray-text);
+     text-decoration: none;
+      margin-left: 1.5rem; 
+      transition: color 0.3s ease;
+    }
+.footer-links a:hover, .footer-socials a:hover {
+     color: var(--primary-color);
+     }
+.footer-copy {
+     text-align: center; 
+     color: var(--gray-text);
+      font-size: 0.9rem;
+       padding-top: 20px; 
+       border-top: 1px solid var(--border-color); 
+       max-width: 1200px;
+        margin: 0 auto;
+     }
+
+/* --- ANIMATIONS & RESPONSIVE --- */
+@keyframes fadeIn { 
+    from { 
+        opacity: 0;
+     } 
+     to {
+         opacity: 1;
+         } 
+}
+.fade-in-section
+ {
+     opacity: 0;
+      transform: translateY(30px); 
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+    }
+.fade-in-section.is-visible {
+     opacity: 1;
+      transform: translateY(0);
+     }
+
+@media (max-width: 768px) {
+    .nav-links {
+         display: none; 
+        }
+    .hero-title, .section-header h2, .cta-section h2 {
+         font-size: 2.2rem;
+         }
+    .quote { 
+        font-size: 1.4rem;
+     }
+    .footer-content { 
+        flex-direction: column;
+         text-align: center;
+         }
+    .footer-links, .footer-socials { 
+        display: flex;
+         flex-direction: column; 
+         gap: 1rem;
+         }
+    .footer-links a, .footer-socials a {
+         margin-left: 0;
+         }
+}
